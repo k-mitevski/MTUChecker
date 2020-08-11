@@ -9,4 +9,3 @@ jobs:
       uses: instrumenta/kubeval-action@master
       with:
         files: "*.yaml"
-        token: ${{ secrets.GITHUB_TOKEN }}
