@@ -5,7 +5,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@master
-    - name: test
+    - name: kubeval
       uses: instrumenta/kubeval-action@master
-      with:
-        files: "*.yaml"
+
