@@ -22,19 +22,19 @@ jobs:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
 
-    - name: Kubernetes yaml validation by kubeval
-      uses: makocchi-git/actions-k8s-manifests-validate-kubeval@v1.0.1
+    - name: Kubernetes yaml validation by conftest
+      uses: makocchi-git/actions-k8s-manifests-validate-conftest@v1.1.0
       with:
-        # Files or directories to validate (kubeval --directories)
-        files: # optional, default is .
-        # Version of Kubernetes to validate against (kubeval --kubernetes-version)
-        version: # optional, default is master
-        # Whether to not to check for extra properties (kubeval --strict)
-        strict: # optional, default is true
-        # Whether to use the schemas from OpenShift rather than Kubernetes (kubeval --openshift)
-        openshift: # optional
-        # Whether or not to skip custom resources (kubeval --ignore-missing-schemas)
-        ignore_missing_schemas: # optional, default is true
+        # File or directory to validate
+        file: # optional, default is .
+        # Output format for conftest results - valid options are: [stdout json tap table]
+        output: # optional, default is stdout
+        # Path to the Rego policy files directory
+        policy: # optional, default is /policy
+        # Enable more verbose trace output for rego queries
+        trace: # optional
+        # A list of urls can be provided to the update flag, which will download before the tests run
+        update: # optional, default is 
         # Send comment to pull requests
         comment: # optional, default is true
         # Github token for api. This is required if comment is true
