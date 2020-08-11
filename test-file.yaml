@@ -6,8 +6,8 @@ spec:
   selector:
     matchLabels:
       app: queue
-  replicas: 1
-  template: # template for the pods
+  replicas: 2
+  template:
     metadata:
       labels:
         app: queue
