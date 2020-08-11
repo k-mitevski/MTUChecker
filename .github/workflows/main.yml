@@ -1,17 +1,9 @@
 on: [push, pull_request]
 name: ValidateYAML
 jobs:
-  validate:
+  kubeval:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
-      - name: Validate kustomization
-        uses: stefanprodan/kube-tools@v1
-        with:
-          # https://github.com/fluxcd/flux/blob/master/docker/kubectl.version
-          kubectl: 1.18.0
-          # https://github.com/fluxcd/flux/blob/master/docker/kustomize.version
-          kustomize: 3.4.0
-          command: |
-            kubeval --strict --ignore-missing-schemas
-
+    - uses: actions/checkout@master
+    - name: test
+      uses: instrumenta/kubeval-action@master
