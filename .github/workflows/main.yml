@@ -7,3 +7,6 @@ jobs:
     - uses: actions/checkout@master
     - name: test
       uses: instrumenta/kubeval-action@master
+      with:
+        files: "*.yaml"
+        token: ${{ secrets.GITHUB_TOKEN }}
