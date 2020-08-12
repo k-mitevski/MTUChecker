@@ -2,8 +2,12 @@
 
 name: Validate YAML
 
-on: [push]
-
+on:
+  push:
+    branches:
+      - develop
+    paths:
+      - 'manifests'
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -13,4 +17,4 @@ jobs:
       with:
         command: |
           echo "Running kubeval"
-          kubeval -d . --strict
+          kubeval -d  --strict
