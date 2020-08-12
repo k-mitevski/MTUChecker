@@ -4,7 +4,7 @@ jobs:
   kubeval:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@master
+    - uses: actions/checkout@v2
     - name: kubeval
       uses: instrumenta/kubeval-action@master
 
