@@ -13,4 +13,4 @@ jobs:
       with:
         command: |
           echo "Running kubeval"
-          kubeval -d manifests --strict
+          kubeval -d . --strict
