@@ -1,0 +1,15 @@
+name: 'kubeval'
+description: 'GitHub Action by kubeval command'
+author: 'Mert Acikportali'
+branding:
+  icon: 'target'
+  color: 'red'
+inputs:
+  command:
+    description: 'Command to run'
+    required: true
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.command }}

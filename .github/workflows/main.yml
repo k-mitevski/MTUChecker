@@ -1,24 +1,16 @@
 # This is a basic workflow to help you get started with Actions
 
-name: ValidateYaml
+name: Validate YAML
 
 on: [push]
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
-
     steps:
-    - uses: actions/checkout@v1
-    - name: Kubeval
-      uses: stefanprodan/kube-tools@v1.2.0
+    - uses: actions/checkout@master
+    - uses: Hmerac/kubeval-action@1.2
       with:
-        kubectl: 1.16.2
-        kustomize: 3.4.0
-        helm: 2.16.1
-        helmv3: 3.0.0
         command: |
-          echo "Run kubeval"
-          kubeval -d config --strict --ignore-missing-schemas
-        
+          echo "Running kubeval"
+          kubeval -d manifests --strict
